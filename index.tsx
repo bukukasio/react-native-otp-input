@@ -193,7 +193,7 @@ export default class OTPInputView extends Component<InputProps, OTPInputViewStat
                 <TextInput
                     testID={testID ? `${testID}${index + 1}` : `inputSlot${index + 1}`}
                     accessibilityLabel={accessibilityLabel ? `${accessibilityLabel}${index + 1}` : `inputSlot${index + 1}`}
-                    autoFocus={selectedIndex===index}
+                    autoFocus={selectedIndex === index}
                     underlineColorAndroid='rgba(0,0,0,0)'
                     style={selectedIndex === index ? [defaultTextFieldStyle, codeInputFieldStyle, codeInputHighlightStyle] : [defaultTextFieldStyle, codeInputFieldStyle]}
                     ref={ref => { this.fields[index] = ref }}
