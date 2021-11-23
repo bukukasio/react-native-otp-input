@@ -93,6 +93,11 @@ declare module '@twotalltotems/react-native-otp-input' {
     accessibilityLabel?: string;
 
     /**
+     * accessible. For test automation in ios
+     */
+     accessible?: boolean;
+
+    /**
      * Test id. For test automation in ios.
      */
     testID?: string;
