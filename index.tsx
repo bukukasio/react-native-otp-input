@@ -187,10 +187,11 @@ export default class OTPInputView extends Component<InputProps, OTPInputViewStat
         const { selectedIndex, digits } = this.state
         const { clearInputs, placeholderCharacter, placeholderTextColor } = this.props
         const { color: defaultPlaceholderTextColor } = { ...defaultTextFieldStyle, ...codeInputFieldStyle }
-        const { accessibilityLabel, testID } = this.props // testing props
+        const { accessibilityLabel, testID, accessible = true } = this.props // testing props
         return (
             <View pointerEvents="none" key={index + "view"} testID="inputSlotView">
                 <TextInput
+                    accessible={accessible}
                     testID={testID ? `${testID}${index + 1}` : `inputSlot${index + 1}`}
                     accessibilityLabel={accessibilityLabel ? `${accessibilityLabel}${index + 1}` : `inputSlot${index + 1}`}
                     underlineColorAndroid='rgba(0,0,0,0)'
@@ -222,7 +223,7 @@ export default class OTPInputView extends Component<InputProps, OTPInputViewStat
     }
 
     render() {
-        const { pinCount, style, clearInputs } = this.props
+        const { pinCount, style, clearInputs, accessible = true } = this.props
         const digits = this.getDigits()
         return (
             <View
@@ -230,6 +231,7 @@ export default class OTPInputView extends Component<InputProps, OTPInputViewStat
                 style={style}
             >
                 <TouchableWithoutFeedback
+                    accessible={accessible}
                     style={{ width: '100%', height: '100%' }}
                     onPress={() => {
                         if (!clearInputs) {
